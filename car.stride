@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="car" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="liv" value="8" value-java="8" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the car wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.isKeyDown(&quot;w&quot;)" condition-java="Greenfoot.isKeyDown(&quot;w&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()-5)" expression-java="setLocation(getX(), getY() - 5)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;s&quot;)" condition-java="Greenfoot.isKeyDown(&quot;s&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()+5)" expression-java="setLocation(getX(), getY() + 5)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="isTouching(house.class)" condition-java="isTouching(house.class)" enable="true">
+                    <ifStatements>
+                        <assign dest="liv" dest-java="liv" src="liv-1" src-java="liv - 1" enable="true"/>
+                        <call expression="removeTouching(house.class)" expression-java="removeTouching(house.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <call expression="getWorld().showText(&quot;liv&quot;+liv,20,100)" expression-java="getWorld().showText(&quot;liv&quot; + liv, 20, 100)" enable="true"/>
+                <if condition="liv==0" condition-java="liv == 0" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().showText(&quot;GameOver&quot;,600,400)" expression-java="getWorld().showText(&quot;GameOver&quot;, 600, 400)" enable="true"/>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Backround" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="time" value="0" value-java="0" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="speed" value="-5" value-java="-5" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Backround wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="getX()&lt;-600" condition-java="getX() &lt; -600" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX()+2400,401)" expression-java="setLocation(getX() + 2400, 401)" enable="true"/>
+                    </ifStatements>
+                    <else/>
+                </if>
+                <call expression="move(speed)" expression-java="move(speed)" enable="true"/>
+                <blank/>
+                <assign dest="time" dest-java="time" src="time+1" src-java="time + 1" enable="true"/>
+                <if condition="time==150" condition-java="time == 150" enable="true">
+                    <ifStatements>
+                        <assign dest="speed" dest-java="speed" src="speed-1" src-java="speed - 1" enable="true"/>
+                        <assign dest="time" dest-java="time" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="int" type-java="int" name="getspeed" enable="true">
+            <javadoc xml:space="preserve">return speed</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <return value="speed" value-java="speed" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
